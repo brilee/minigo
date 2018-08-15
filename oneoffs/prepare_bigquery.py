@@ -10,11 +10,13 @@ BOARD_SIZE=19 python oneoffs/prepare_bigquery.py \
 
 Usage (multiple files)
 export BOARD_SIZE=19
+export BUCKET_NAME=...
 gsutil ls gs://$BUCKET_NAME/sgf/full | \
-    xargs -I '{}' python3 oneoffs/prepare_bigquery.py \
-    -n 1 -P 32 \
+    xargs -I '{}' -n 1 -P 32 \
+    python3 oneoffs/prepare_bigquery.py \
     --sgf_dir='{}' \
     --output_dir=gs://tensor-go-minigo-v9-19/bigquery
+
 The load commands look like:
 
 export PROJECT_ID=blah
@@ -240,7 +242,7 @@ def main(argv):
     sgf_dir = FLAGS.sgf_dir
     if sgf_dir.endswith('/'):
         sgf_dir = sgf_dir.rstrip('/')
-    process_directory(FLAGS.sgf_dir, FLAGS.output_dir)
+    process_directory(sgf_dir, FLAGS.output_dir)
 
 
 if __name__ == '__main__':
