@@ -16,6 +16,10 @@
 set -e
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+MINIGUI_MODEL=000923-clove-tree
+MINIGUI_GCS_DIR=v12-19x19/models
+MINIGUI_RUN_ID=v12
+MINIGUI_BOARD_SIZE=19
 
 # Run in a sub-shell so we don't unexpectedly set new variables.
 {
