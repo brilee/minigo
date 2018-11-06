@@ -68,8 +68,8 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
     echo "Freezing model"
     echo "--------------------------------------------------"
 
-    BOARD_SIZE=$MINIGUI_BOARD_SIZE $MINIGUI_PYTHON main.py freeze-graph \
-        $model_path --conv_width=128
+    BOARD_SIZE=$MINIGUI_BOARD_SIZE $MINIGUI_PYTHON freeze_graph.py \
+        --model_path=$model_path
   fi
 
   echo
@@ -84,5 +84,6 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
   --port=$MINIGUI_PORT \
   --host=$MINIGUI_HOST \
   --python_for_engine=${MINIGUI_PYTHON} \
-  --engine=tf
+  --num_readouts=12 \
+  --engine=py
 }

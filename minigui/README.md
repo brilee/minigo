@@ -10,8 +10,9 @@ A UI for Minigo
    Name and the Board Size.
 
     ```shell
-    export MINIGUI_BOARD_SIZE=9
-    export MINIGUI_MODEL=000360-grown-teal
+    export MINIGUI_BOARD_SIZE=19
+    export MINIGUI_RUN_ID=v12
+    export MINIGUI_MODEL=000923-clove-tree
     ```
 
 1. From the root directory, run:
